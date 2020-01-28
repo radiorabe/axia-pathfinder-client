@@ -3,23 +3,17 @@ import pytest
 from pathfinder.operators.get import Get
 
 _GET_TESTDATA = [
+    ([b"indi Devices#0\r\n"], [{"path": "Devices#0", "info": {}}]),
     (
-        [b"indi Devices#0\r\n"],
-        [{"obj": "Object((ObjectPart(Devices#0)))", "params": {}}],
-    ),
-    (
-        [b"indi Devices#0\r\n", b"indi MemorySlots#0"],
-        [
-            {"obj": "Object((ObjectPart(Devices#0)))", "params": {}},
-            {"obj": "Object((ObjectPart(MemorySlots#0)))", "params": {}},
-        ],
+        [b"indi Devices#0\r\n", b"indi MemorySlots#0\r\n"],
+        [{"path": "Devices#0", "info": {}}, {"path": "MemorySlots#0", "info": {}}],
     ),
     (
         [b"indi MemorySlots#0.MemorySlot#Test SlotName=Test, SlotValue=MyValue\r\n"],
         [
             {
-                "obj": "Object((ObjectPart(MemorySlots#0), ObjectPart(MemorySlot#Test)))",
-                "params": {"SlotName": "Test", "SlotValue": "MyValue"},
+                "path": "MemorySlots#0.MemorySlot#Test",
+                "info": {"SlotName": "Test", "SlotValue": "MyValue"},
             }
         ],
     ),
@@ -41,9 +35,7 @@ class TestGetOperator:
         results = get.execute()
 
         for i, value in enumerate(expected):
-            assert results[i][0] == "INDI"
-            assert str(results[i][1]) == value.get("obj")
-            assert results[i][2] == value.get("params")
+            assert results[i] == value
 
         get.client.write.assert_called_with(b"GET .\r\n")
         get.client.read_until.assert_called_with(b"\r\n", timeout=1)

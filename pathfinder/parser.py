@@ -1,29 +1,38 @@
 from parsy import regex, seq, string, string_from
 
-from pathfinder.model import Object, ObjectPart
-
 
 class ResponseParser:
     def __init__(self):
-        # TODO: finish this parser to it does more than just parse indi reponses
-        operator = string_from("indi")
+        # TODO: finish this parser to it does more than just parse indi and GPO reponses
+        indi_operator = string_from("indi")
+        gp_operator = string_from("GPO", "GPI")
         space = string(" ")
-        dot = string(".")
-        obj = regex(r"[a-zA-Z]*#[0-9a-zA-Z]*").map(lambda o: ObjectPart(o))
+        obj = regex(r"[a-zA-Z0-9.#]*")
         name = regex(r"[a-zA-Z]*")
+        simple_string = regex(r"[a-zA-Z ]*")
         equals = string("=")
         value = regex(r"[^,]*") | regex(r'".*"')
+        number = regex(r"[0-9]+")
+        gp_value = regex(r"[hl]").map(lambda v: {"h": False, "l": True}[v]) * 5
 
-        self.p = seq(
-            operator.map(lambda n: n.upper()) << space,
-            obj.sep_by(dot, min=1).map(lambda o: Object(o)) << space.optional(),
-            seq(name << equals, value).sep_by(string(", "), min=0).optional(),
+        indi_parser = seq(indi_operator << space).then(
+            seq(
+                path=obj << space.optional(),
+                info=seq(name=name << equals, value=value << string(", ").optional())
+                .map(lambda x: {x["name"]: x["value"]})
+                .many()
+                .map(lambda kv: {k: v for d in kv for k, v in d.items()}),
+            )
+        )
+        gp_parser = seq(gp_operator << space).then(
+            seq(number=number << space, pins=gp_value)
+        )
+        error_parser = seq(string("ERROR") << space).then(
+            seq(number << space, simple_string)
         )
 
+        self.p = indi_parser | gp_parser | error_parser
+
     def parse(self, string):
-        r = self.p.parse(string)
-        params = {}
-        for v in r[2]:
-            params[v[0]] = v[1]
-        r[2] = params
-        return r
+        print(string[0:30])
+        return self.p.parse(string)

@@ -11,7 +11,9 @@ Please raise an [issue](https://github.com/radiorabe/axia-pathfinder-client/issu
 * partially implements the "SAPv2" protocol as described in the [pathfinder manual](https://www.telosalliance.com/images/Axia%20Products/Pathfinder%20PC/Support%20Files/PathFinder%20PC%20Manual-5.00.pdf)
   * only "LOGIN" and "GET" operators are currently supported
   * "INDI" responses to "GET" requests get parsed and returned in a timeout governed timeout fashion
-* Uses a PEG-style parser-combinator based on [parsy](https://github.com/python-parsy/parsy) to parse responses from the telnet interface
+* Also works with xNode Telnet interfaces
+  * GPO responses to "GPO" requests are currently parsed
+* Uses a PEG-style parser-combinator based on [parsy](https://github.com/python-parsy/parsy) to parse responses from the telnet interfaces
 
 ## Contributing
 
