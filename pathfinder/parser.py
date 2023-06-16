@@ -7,7 +7,7 @@ class ResponseParser:
         indi_operator = string_from("indi")
         gp_operator = string_from("GPO", "GPI")
         space = string(" ")
-        obj = regex(r"[a-zA-Z0-9.#]*")
+        obj = regex(r"[a-zA-Z0-9.#\[\]:/]*")
         name = regex(r"[a-zA-Z]*")
         simple_string = regex(r"[a-zA-Z ]*")
         equals = string("=")
@@ -34,5 +34,4 @@ class ResponseParser:
         self.p = indi_parser | gp_parser | error_parser
 
     def parse(self, string):
-        print(string[0:30])
         return self.p.parse(string)

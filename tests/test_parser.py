@@ -4,6 +4,10 @@ from pathfinder.parser import ResponseParser
 
 _PARSER_TESTDATA = [
     ("indi Devices#0", {"path": "Devices#0", "info": {}}),
+    (
+        "indi Devices#0.PcpGpio#[tcp://127.0.0.1:93]",
+        {"path": "Devices#0.PcpGpio#[tcp://127.0.0.1:93]", "info": {}},
+    ),
     ("indi MemorySlots#0", {"path": "MemorySlots#0", "info": {}}),
     (
         " ".join(
