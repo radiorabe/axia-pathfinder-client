@@ -1,0 +1,10 @@
+/* set primary color */
+:root {
+  --md-primary-fg-color:        #00C9BF;
+  --md-accent-fg-color:         #00C9BF;
+}
+
+/* make code selectable on main */
+.highlight .o {
+    user-select: none;
+}

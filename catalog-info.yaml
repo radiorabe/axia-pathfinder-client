@@ -1,0 +1,15 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: axia-pathfinder-client
+  title: Axia Pathfinder Client for Python
+  description: |
+    A python client/sdk for the the telnet based API on Axia Pathfinder software/appliances from the Telos Alliance.
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: radiorabe/axia-pathfinder-client
+spec:
+  type: library
+  lifecycle: experimental
+  owner: it-reaktion
