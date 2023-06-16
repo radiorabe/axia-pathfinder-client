@@ -1,5 +1,3 @@
-import pytest
-
 from pathfinder.operators.sub import Sub
 
 
