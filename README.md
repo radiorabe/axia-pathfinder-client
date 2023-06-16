@@ -9,7 +9,7 @@ Please raise an [issue](https://github.com/radiorabe/axia-pathfinder-client/issu
 ## Features
 
 * partially implements the "SAPv2" protocol as described in the [pathfinder manual](https://www.telosalliance.com/images/Axia%20Products/Pathfinder%20PC/Support%20Files/PathFinder%20PC%20Manual-5.00.pdf)
-  * only "LOGIN" and "GET" operators are currently supported
+  * only "LOGIN", "GET" and "SUB" operators are currently supported
   * "INDI" responses to "GET" requests get parsed and returned in a timeout governed timeout fashion
 * Also works with xNode Telnet interfaces
   * GPO responses to "GPO" requests are currently parsed
