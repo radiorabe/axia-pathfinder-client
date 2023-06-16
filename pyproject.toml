@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "axia-pathfinder-client"
+version = "0.0.0"
+description = "Proof of concept Axia Pathfinder API/SDK."
+authors = ["RaBe IT-Reaktion <it@rabe.ch>"]
+license = "AGPLv3"
+readme = "README.md"
+packages = [{include = "pathfinder"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+parsy = "^2.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+pytest = "^7.3.2"
+pytest-cov = "^4.0.0"
+pytest-random-order = "^1.1.0"
+pytest-ruff = "^0.1"
+ruff = "^0.0.272"
+isort = "^5.12.0"
+pytest-isort = "^3.1.0"
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+minversion = "7.2"
+addopts = "-ra -q --random-order --cov=pathfinder --cov-fail-under=100 --ruff --isort --ignore=docs/"
+#filterwarnings = ["ignore::DeprecationWarning:pytest_freezegun"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
