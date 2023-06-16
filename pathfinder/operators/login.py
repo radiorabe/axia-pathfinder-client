@@ -2,10 +2,12 @@
 Login to pathfinder.
 
 >>> from pathfinder.operators.login import Login
->>> l = Login(client=client, config={"host": "pathfinder", "user": "Admin", "pass": "Admin"})
+>>> c = {"host": "pathfinder", "user": "Admin", "pass": "Admin"}
+>>> l = Login(client=client, config=c)
 >>> l.execute()
 True
->>> l = Login(client=client, config={"host": "pathfinder", "user": "Admin", "pass": "Nope"})
+>>> c = {"host": "pathfinder", "user": "Admin", "pass": "Nope"}
+>>> l = Login(client=client, config=c)
 >>> l.execute()
 False
 """
@@ -22,7 +24,7 @@ class Login(BaseOperator):
 
     def execute(self):
         self.client.write(
-            "LOGIN {0} {1}".format(
+            "LOGIN {} {}".format(
                 self.config.get("user"), self.config.get("pass")
             ).encode("ascii")
             + b"\r\n"

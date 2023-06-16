@@ -1,0 +1,13 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  pull_request:
+
+jobs:
+  python-poetry:
+    uses: radiorabe/actions/.github/workflows/release-python-poetry.yaml@v0.13.1
+    secrets:
+      RABE_PYPI_TOKEN: ${{ secrets.RABE_PYPI_TOKEN }}

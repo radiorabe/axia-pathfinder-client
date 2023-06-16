@@ -6,7 +6,15 @@ _PARSER_TESTDATA = [
     ("indi Devices#0", {"path": "Devices#0", "info": {}}),
     ("indi MemorySlots#0", {"path": "MemorySlots#0", "info": {}}),
     (
-        'indi MemorySlots#0.MemorySlot#Test SlotName=Test, SlotValue=MyValue, SubVersion="0001-01-01T00:00:00.000+00:00"',
+        " ".join(
+            [
+                "indi",
+                "MemorySlots#0.MemorySlot#Test",
+                "SlotName=Test,",
+                "SlotValue=MyValue,",
+                'SubVersion="0001-01-01T00:00:00.000+00:00"',
+            ]
+        ),
         {
             "path": "MemorySlots#0.MemorySlot#Test",
             "info": {

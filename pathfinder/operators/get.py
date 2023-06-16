@@ -14,12 +14,12 @@ class Get(BaseOperator):
     def execute(self):
         p = ResponseParser()
         self.client.write(
-            "GET {0}".format(self.config.get("path")).encode("ascii") + b"\r\n"
+            "GET {}".format(self.config.get("path")).encode("ascii") + b"\r\n"
         )
         results = []
         while True:
             data = self.client.read_until(b"\r\n", timeout=1)
-            if data is b"":
+            if data == b"":
                 break
             if data != b"\r\n":
                 results.append(p.parse(data.decode("ascii").rstrip("\r\n")))

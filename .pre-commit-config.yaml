@@ -1,18 +1,39 @@
 repos:
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v2.31.1
+    hooks:
+      - id: pyupgrade
+        args:
+          - --py311-plus
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    # Ruff version.
+    rev: "v0.0.269"
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
   - repo: local
     hooks:
+      - id: isort
+        name: isort
+        language: system
+        entry: isort
+        types: [python]
       - id: black
         name: black
         language: system
         entry: black
         types: [python]
-      - id: isort
-        name: isort
-        language: system
-        entry: isort -y
-        types: [python]
-      - id: flake8
-        name: flake8
-        language: system
-        entry: flake8
-        types: [python]
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: ^src/api/client.js$
+      - id: end-of-file-fixer
+        exclude: ^src/api/client.js$
+      - id: check-symlinks
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: detect-aws-credentials
+        args:
+          - --allow-missing-credentials
+      - id: detect-private-key

@@ -19,16 +19,26 @@ Please raise an [issue](https://github.com/radiorabe/axia-pathfinder-client/issu
 
 Please let us know what you would like to contribute before you get invested! This is really a proof of concept at this stage.
 
+### Development
+
+```bash
+python -mvenv venv
+. venv/bin/activate
+
+pip install poetry
+
+poetry install
+```
+
 ### pre-commit hook
 
 ```bash
 pip install pre-commit
-pip install -r requirements-dev.txt -U
-pre-commit install
+pre-commit run -a
 ```
 
 ### Testing
 
 ```bash
-pytest
+poetry run pytest
 ```

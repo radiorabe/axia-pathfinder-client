@@ -26,7 +26,7 @@ class TestTelnetClient:
         telnetclient.connect()
         mocked.assert_called_with()
         telnetclient.client.open.assert_called_with(
-            telnetclientconf["host"], telnetclientconf["port"]
+            telnetclientconf["host"], telnetclientconf["port"], 1
         )
 
     @patch.object(telnetlib.Telnet, "open")
