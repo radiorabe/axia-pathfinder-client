@@ -22,7 +22,7 @@ class LoginException(Exception):
 class Login(BaseOperator):
     config = {"user": "Admin", "pass": "Admin"}
 
-    def execute(self):
+    def execute(self) -> bool:
         self.client.write(
             "LOGIN {} {}".format(
                 self.config.get("user"), self.config.get("pass")
