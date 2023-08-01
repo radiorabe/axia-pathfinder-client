@@ -739,13 +739,13 @@ pytest = ">=3.0.0"
 
 [[package]]
 name = "pytest-ruff"
-version = "0.1"
+version = "0.1.1"
 description = "pytest plugin to check ruff requirements."
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "pytest_ruff-0.1-py3-none-any.whl", hash = "sha256:12d3aabcb52ad78fc8c80d9526ee05352dd0ccaacce0a5504e397ff4f962a4f3"},
-    {file = "pytest_ruff-0.1.tar.gz", hash = "sha256:cae7d7555b880e1110aaa194898ea8e39c71ccd8c1fa418664835a9457298a06"},
+    {file = "pytest_ruff-0.1.1-py3-none-any.whl", hash = "sha256:db33c8d32d730d61d372c1ac4615b1036c47a14c781cbc0ae71811c4cadadc47"},
+    {file = "pytest_ruff-0.1.1.tar.gz", hash = "sha256:f599768ff3834d6b1d6d26b25a030a5b1dcc9cf187239bd9621a7f25f7d8fe46"},
 ]
 
 [package.dependencies]
