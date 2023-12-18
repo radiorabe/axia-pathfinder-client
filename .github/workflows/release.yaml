@@ -9,6 +9,6 @@ on:
 
 jobs:
   python-poetry:
-    uses: radiorabe/actions/.github/workflows/release-python-poetry.yaml@v0.19.1
+    uses: radiorabe/actions/.github/workflows/release-python-poetry.yaml@v0.20.2
     secrets:
       RABE_PYPI_TOKEN: ${{ secrets.RABE_PYPI_TOKEN }}
