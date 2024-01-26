@@ -12,7 +12,7 @@ python = "^3.11"
 parsy = "^2.1"
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.3.0"
+black = ">=23.3,<25.0"
 pytest = "^7.3.2"
 pytest-cov = "^4.0.0"
 pytest-random-order = "^1.1.0"
