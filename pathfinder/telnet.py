@@ -7,7 +7,6 @@ Wrapper around telnetlib.
 >>> tc.disconnect()
 """
 
-
 import logging
 import telnetlib
 
