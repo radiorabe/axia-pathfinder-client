@@ -859,14 +859,14 @@ pytest = ">=3.0.0"
 
 [[package]]
 name = "pytest-ruff"
-version = "0.4.1"
+version = "0.5"
 description = "pytest plugin to check ruff requirements."
 optional = false
 python-versions = "<4.0,>=3.8"
 groups = ["dev"]
 files = [
-    {file = "pytest_ruff-0.4.1-py3-none-any.whl", hash = "sha256:69acd5b2ba68d65998c730b5b4d656788193190e45f61a53aa66ef8b390634a4"},
-    {file = "pytest_ruff-0.4.1.tar.gz", hash = "sha256:2c9a30f15f384c229c881b52ec86cfaf1e79d39530dd7dd5f2d6aebe278f7eb7"},
+    {file = "pytest_ruff-0.5-py3-none-any.whl", hash = "sha256:d9db170d86fb167008e6702b4d79e2cccd8287f069c3a57f9261831cebdc4a31"},
+    {file = "pytest_ruff-0.5.tar.gz", hash = "sha256:f611c780fc2b9b8d7041fa0e7589f0a9f352b288d0cfc330881101b35d382063"},
 ]
 
 [package.dependencies]
@@ -1087,4 +1087,4 @@ watchmedo = ["PyYAML (>=3.10)"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.11"
-content-hash = "514f4361ba54328d99d5d456c7a041311ea149e65f84e7c0315f818e21a056e3"
+content-hash = "7e7a86245d3645379c99c1a8da36e99e29217fad3caffaf59e953a31a16daafa"
