@@ -1,5 +1,7 @@
 # axia-pathfinder-client
 
+Archived as of Nov 2025, see https://github.com/radiorabe/axia-pathfinder-client/issues/290.
+
 This is an early start at writing a python client/sdk for the the telnet based API on [Axia Pathfinder](https://www.telosalliance.com/Axia/Pathfinder-Routing-Control) software/appliances from the [Telos Alliance](https://www.telosalliance.com).
 
 Currently it is more a proof of concept rather than anything ready for production. We have plans to integrate it with our current [songticker glue code](https://github.com/radiorabe/nowplaying).
